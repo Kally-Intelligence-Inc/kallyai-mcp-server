@@ -9,7 +9,7 @@
 - **Type**: Remote MCP Server (Streamable HTTP + stdio)
 - **Status**: Production Ready (GA)
 - **License**: MIT
-- **Repository**: https://github.com/kallyai/kallyai-mcp-server
+- **Repository**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 
 ## Description
 
@@ -244,8 +244,8 @@ Complete privacy policy: [PRIVACY.md](./PRIVACY.md)
 ### Support Channels
 
 - **Email**: support@kallyai.com
-- **GitHub Issues**: https://github.com/kallyai/kallyai-mcp-server/issues
-- **Documentation**: https://github.com/kallyai/kallyai-mcp-server
+- **GitHub Issues**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
+- **Documentation**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 - **API Docs**: https://api.kallyai.com/docs
 
 ### Hours of Operation
@@ -302,7 +302,7 @@ Examples: `America/New_York`, `Europe/Madrid`
 
 ## Links
 
-- **Repository**: https://github.com/kallyai/kallyai-mcp-server
+- **Repository**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 - **npm Package**: https://www.npmjs.com/package/kallyai-mcp-server
 - **Documentation**: README.md, USAGE.md, IMPLEMENTATION.md
 - **Privacy**: PRIVACY.md

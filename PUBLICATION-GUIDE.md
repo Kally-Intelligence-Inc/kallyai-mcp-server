@@ -94,28 +94,14 @@ npx kallyai-mcp-server --help
 ### 2.1 Prerequisites Verification
 
 **GitHub Repository**:
-- ✅ Create public repository: https://github.com/kallyai/kallyai-mcp-server
+- ✅ Create public repository: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 - ✅ Push all code and documentation
 - ✅ Add README.md as repository homepage
 - ✅ Add topics: `mcp-server`, `claude`, `anthropic`, `kallyai`
 
 ```bash
-# Initialize git (if not already)
-cd /Users/sergei/PycharmProjects/KallyAI/kallyai-mcp-server
-git init
-git add .
-git commit -m "feat: Initial release of KallyAI MCP Server v1.0.0
-
-- 6 fully functional tools for phone automation
-- CLI-style authentication with auto-refresh
-- Production tested with real phone calls
-- Complete documentation and privacy policy
-- MIT license, open source"
-
-# Add remote and push
-git remote add origin git@github.com:kallyai/kallyai-mcp-server.git
-git branch -M main
-git push -u origin main
+# Repository already created and pushed
+# URL: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 ```
 
 **Test Account Preparation**:
@@ -135,7 +121,7 @@ Visit: [MCP Directory Server Review Form](https://docs.google.com/forms/d/e/1FAI
 2. **Server Description**:
    > The KallyAI MCP Server enables Claude AI to make phone calls through an AI assistant. Users can schedule restaurant reservations, book medical appointments, make general business inquiries, and handle other phone-based tasks without picking up the phone.
 
-3. **Repository URL**: https://github.com/kallyai/kallyai-mcp-server
+3. **Repository URL**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 
 4. **npm Package**: kallyai-mcp-server
 
@@ -144,14 +130,14 @@ Visit: [MCP Directory Server Review Form](https://docs.google.com/forms/d/e/1FAI
 6. **Authentication Method**: OAuth2 Bearer Token (local storage)
 
 7. **Privacy Policy URL**:
-   https://github.com/kallyai/kallyai-mcp-server/blob/main/PRIVACY.md
+   https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/PRIVACY.md
 
 8. **Support Contact**:
    - Email: support@kallyai.com
-   - GitHub Issues: https://github.com/kallyai/kallyai-mcp-server/issues
+   - GitHub Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
 
 9. **Documentation URL**:
-   https://github.com/kallyai/kallyai-mcp-server#readme
+   https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#readme
 
 10. **Usage Examples**: (Copy from CONNECTOR-SUBMISSION.md Examples 1-3)
 
@@ -265,11 +251,11 @@ npm publish
 | Resource | URL |
 |----------|-----|
 | npm Package | https://www.npmjs.com/package/kallyai-mcp-server |
-| GitHub Repo | https://github.com/kallyai/kallyai-mcp-server |
+| GitHub Repo | https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server |
 | Submission Form | https://docs.google.com/forms/d/e/1FAIpQLSeafJF2NDI7oYx1r8o0ycivCSVLNq92Mpc1FPxMKSw1CzDkqA/viewform |
 | Connector Directory | https://claude.com/connectors |
-| Privacy Policy | https://github.com/kallyai/kallyai-mcp-server/blob/main/PRIVACY.md |
-| Documentation | https://github.com/kallyai/kallyai-mcp-server#readme |
+| Privacy Policy | https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/PRIVACY.md |
+| Documentation | https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#readme |
 
 ### Key Commands
 

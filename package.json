@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kallyai/kallyai-mcp-server.git"
+    "url": "git+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server.git"
   },
-  "homepage": "https://github.com/kallyai/kallyai-mcp-server#readme",
+  "homepage": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#readme",
   "bugs": {
-    "url": "https://github.com/kallyai/kallyai-mcp-server/issues",
+    "url": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues",
     "email": "support@kallyai.com"
   },
   "scripts": {

@@ -88,14 +88,14 @@ We may update this privacy policy from time to time. The "Last Updated" date at 
 
 For privacy-related questions about:
 
-- **This MCP Server**: Create an issue at [GitHub Repository](https://github.com/kallyai/kallyai-mcp-server)
+- **This MCP Server**: Create an issue at [GitHub Repository](https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server)
 - **KallyAI Service**: Contact support@kallyai.com
 - **Data Requests**: privacy@kallyai.com
 
 ## Open Source
 
 This MCP server is open source (MIT License). You can review the complete source code to verify our privacy claims:
-- GitHub: https://github.com/kallyai/kallyai-mcp-server
+- GitHub: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 - License: MIT
 
 ## Compliance
