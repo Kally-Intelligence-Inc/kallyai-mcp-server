@@ -1,10 +1,35 @@
 {
+  "_comment_setup_step_1": "FIRST: Run 'npx kallyai-mcp-server --setup' to authenticate with Firebase",
+  "_comment_setup_step_2": "THEN: Copy the 'mcpServers' section below to your Claude Desktop config",
+  "_comment_setup_step_3": "FINALLY: Restart Claude Desktop to load the KallyAI tools",
+  "_comment_config_location_mac": "Claude Desktop config location (Mac): ~/Library/Application Support/Claude/claude_desktop_config.json",
+  "_comment_config_location_windows": "Claude Desktop config location (Windows): %APPDATA%/Claude/claude_desktop_config.json",
+  "_comment_config_location_linux": "Claude Desktop config location (Linux): ~/.config/Claude/claude_desktop_config.json",
+
   "mcpServers": {
     "kallyai": {
-      "command": "node",
+      "_description": "KallyAI Phone Assistant - Make AI-powered phone calls through Claude",
+      "_note_1": "This uses npx to always run the latest published version from npm",
+      "_note_2": "The -y flag auto-confirms npx prompts for a smoother experience",
+      "_troubleshooting_1": "If tools don't appear: Check Claude Desktop logs or try restarting",
+      "_troubleshooting_2": "If auth fails: Run 'npx kallyai-mcp-server --setup' again",
+      "_troubleshooting_3": "If calls fail: Verify Firebase auth and API permissions",
+
+      "command": "npx",
       "args": [
-        "/absolute/path/to/kallyai-mcp-server/dist/index.js"
+        "-y",
+        "kallyai-mcp-server"
       ]
     }
-  }
+  },
+
+  "_alternative_local_dev": "For local development, use this command instead:",
+  "_alternative_local_dev_command": "node",
+  "_alternative_local_dev_args": [
+    "/absolute/path/to/kallyai-mcp-server/dist/index.js"
+  ],
+
+  "_usage_example": "After setup, you can say: 'Call the restaurant at (555) 123-4567 and make a reservation for 2 people at 7pm'",
+  "_available_tools": "Available tools: kallyai_make_call, kallyai_get_call_status, kallyai_list_calls",
+  "_learn_more": "Documentation: https://github.com/yourusername/kallyai-mcp-server"
 }

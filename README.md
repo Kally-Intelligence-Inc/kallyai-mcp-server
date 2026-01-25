@@ -30,46 +30,99 @@ This MCP server enables LLM agents to interact with the KallyAI API to:
 
 6. **kallyai_get_statistics** - Get usage and quota information
 
-## Installation
+## Quick Start
+
+### Step 1: Authenticate (one-time)
+
+```bash
+npx kallyai-mcp-server --setup
+```
+
+Follow the prompts to sign in at https://kallyai.com/app
+
+### Step 2: Install in Claude Desktop
+
+Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+
+```json
+{
+  "mcpServers": {
+    "kallyai": {
+      "command": "npx",
+      "args": ["-y", "kallyai-mcp-server"]
+    }
+  }
+}
+```
+
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+**Linux**: `~/.config/Claude/claude_desktop_config.json`
+
+### Step 3: Restart Claude Desktop
+
+Done! Try: "Call a restaurant and make a reservation"
+
+## Verification
+
+Test the server:
+```bash
+npx kallyai-mcp-server
+# Should start successfully without errors
+```
+
+Check authentication:
+```bash
+# Verify token file exists
+ls -la ~/.kallyai_token.json
+```
+
+## Troubleshooting
+
+### "Authentication failed" or "No token found"
+- Run `npx kallyai-mcp-server --setup` to re-authenticate
+- Make sure you completed the sign-in flow at https://kallyai.com/app
+
+### "Command not found: npx"
+- Install Node.js from https://nodejs.org (version 18 or higher)
+- Restart your terminal after installation
+
+### "Server not showing in Claude Desktop"
+- Check your config file path is correct for your OS
+- Verify JSON syntax is valid (no trailing commas)
+- Restart Claude Desktop completely (quit and reopen)
+
+### "quota_exceeded" error
+- You've used all available minutes
+- Upgrade your plan at https://kallyai.com/app/settings
+
+## Authentication
+
+The MCP server uses automatic token management:
+
+1. **Automatic token management**: Reads tokens from `~/.kallyai_token.json`
+2. **Auto-refresh**: Automatically refreshes expired tokens
+3. **No manual token passing**: Users don't need to provide tokens in tool parameters
+
+The authentication token is stored in `~/.kallyai_token.json` and used automatically by all MCP tools.
+
+## Advanced Usage
+
+### As a stdio server (local development)
 
 ```bash
 npm install
 npm run build
-```
-
-## Usage
-
-### As a stdio server (local)
-
-```bash
 npm start
 ```
 
 ### As an HTTP server (remote)
 
 ```bash
+npm install
+npm run build
 TRANSPORT=http PORT=3000 npm start
 ```
-
-## Authentication
-
-The MCP server uses the same authentication approach as the KallyAI CLI tool:
-
-1. **Automatic token management**: Reads tokens from `~/.kallyai_token.json`
-2. **Auto-refresh**: Automatically refreshes expired tokens
-3. **No manual token passing**: Users don't need to provide tokens in tool parameters
-
-### Getting Authenticated
-
-```bash
-# If you have the KallyAI CLI installed
-kallyai login
-
-# Or visit the web app
-# https://kallyai.com/app
-```
-
-The authentication token is stored in `~/.kallyai_token.json` and used automatically by all MCP tools.
 
 ## Configuration
 

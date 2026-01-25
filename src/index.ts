@@ -418,15 +418,86 @@ async function runHTTP() {
 /**
  * Main entry point
  */
-const transport = process.env.TRANSPORT || "stdio";
-if (transport === "http") {
-  runHTTP().catch((error) => {
-    console.error("Server error:", error);
-    process.exit(1);
-  });
-} else {
-  runStdio().catch((error) => {
-    console.error("Server error:", error);
-    process.exit(1);
-  });
+async function main() {
+  // Check for CLI commands before starting server
+  const args = process.argv.slice(2);
+
+  // Handle --setup command
+  if (args.includes("--setup") || args.includes("-s")) {
+    const { runSetup } = await import("./cli/setup.js");
+    await runSetup();
+    process.exit(0);
+  }
+
+  // Handle --help command
+  if (args.includes("--help") || args.includes("-h")) {
+    console.log(`
+KallyAI MCP Server - AI Phone Assistant Integration
+
+USAGE:
+  kallyai-mcp-server [OPTIONS]
+
+OPTIONS:
+  --setup, -s     Run interactive authentication setup
+  --help, -h      Show this help message
+  --version, -v   Show version information
+
+ENVIRONMENT VARIABLES:
+  TRANSPORT       Server transport mode: "stdio" (default) or "http"
+  PORT            HTTP server port (default: 3000, only for http mode)
+
+EXAMPLES:
+  # Run interactive setup
+  kallyai-mcp-server --setup
+
+  # Start MCP server (stdio mode)
+  kallyai-mcp-server
+
+  # Start HTTP server
+  TRANSPORT=http PORT=3000 kallyai-mcp-server
+
+AUTHENTICATION:
+  The server uses OAuth tokens stored in ~/.kallyai_token.json
+  Run --setup to authenticate interactively, or get tokens from:
+  https://kallyai.com/app → Settings → Developer → API Tokens
+
+DOCUMENTATION:
+  https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
+
+SUPPORT:
+  Email: support@kallyai.com
+  Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
+`);
+    process.exit(0);
+  }
+
+  // Handle --version command
+  if (args.includes("--version") || args.includes("-v")) {
+    const { readFile } = await import("fs/promises");
+    const { join } = await import("path");
+    const { fileURLToPath } = await import("url");
+    const { dirname } = await import("path");
+
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const packageJsonPath = join(__dirname, "../package.json");
+    const packageJson = JSON.parse(await readFile(packageJsonPath, "utf-8"));
+
+    console.log(`kallyai-mcp-server v${packageJson.version}`);
+    process.exit(0);
+  }
+
+  // Start the appropriate server
+  const transport = process.env.TRANSPORT || "stdio";
+  if (transport === "http") {
+    await runHTTP();
+  } else {
+    await runStdio();
+  }
 }
+
+// Run main with error handling
+main().catch((error) => {
+  console.error("Server error:", error);
+  process.exit(1);
+});

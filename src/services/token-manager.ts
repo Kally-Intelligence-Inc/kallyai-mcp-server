@@ -97,7 +97,10 @@ async function refreshToken(refreshToken: string): Promise<TokenData> {
     return newTokenData;
   } catch (error) {
     throw new Error(
-      `Failed to refresh token. Please authenticate again by running: kallyai login`
+      `❌ Failed to refresh authentication token.\n\n` +
+      `Please re-authenticate:\n` +
+      `  1️⃣  Run: npx kallyai-mcp-server --setup\n` +
+      `  2️⃣  Visit: https://kallyai.com/app`
     );
   }
 }
@@ -111,8 +114,12 @@ export async function getAccessToken(): Promise<string> {
 
   if (!tokenData) {
     throw new Error(
-      `No authentication found. Please authenticate first by running: kallyai login\n` +
-      `Or visit https://kallyai.com/app to sign in.`
+      `🔐 Welcome to KallyAI MCP Server!\n\n` +
+      `To get started, you need to authenticate first.\n\n` +
+      `Choose one of these options:\n` +
+      `  1️⃣  Run: npx kallyai-mcp-server --setup\n` +
+      `  2️⃣  Visit: https://kallyai.com/app\n\n` +
+      `This will create your authentication token at: ${TOKEN_FILE}`
     );
   }
 
@@ -134,8 +141,11 @@ export async function getAccessToken(): Promise<string> {
       return refreshedData.access_token;
     } catch (error) {
       throw new Error(
-        `Access token expired and refresh failed. Please authenticate again by running: kallyai login\n` +
-        `Error: ${error instanceof Error ? error.message : String(error)}`
+        `🔄 Your session has expired and couldn't be refreshed automatically.\n\n` +
+        `Please re-authenticate:\n` +
+        `  1️⃣  Run: npx kallyai-mcp-server --setup\n` +
+        `  2️⃣  Visit: https://kallyai.com/app\n\n` +
+        `Error details: ${error instanceof Error ? error.message : String(error)}`
       );
     } finally {
       refreshPromise = null;

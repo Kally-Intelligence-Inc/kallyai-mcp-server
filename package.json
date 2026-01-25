@@ -1,6 +1,6 @@
 {
   "name": "kallyai-mcp-server",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "MCP server for KallyAI API - AI phone assistant integration. Make restaurant reservations, schedule appointments, and handle phone calls through Claude AI.",
   "type": "module",
   "main": "dist/index.js",
@@ -32,6 +32,7 @@
     "express": "^4.21.2",
     "express-rate-limit": "^8.2.1",
     "helmet": "^8.1.0",
+    "open": "^11.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
