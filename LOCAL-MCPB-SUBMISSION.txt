@@ -1,0 +1,387 @@
+# Anthropic Local MCP Server (MCPB) Submission
+
+**Submission Form**: https://forms.gle/tyiAZvch1kDADKoP9
+
+**Package Created**: kallyai-mcp-server.mcpb (4.1 MB)
+
+---
+
+## Form Field Responses
+
+### 1. Extension Name*
+```
+KallyAI Phone Assistant
+```
+
+### 2. Extension ID / npm Package Name*
+```
+kallyai-mcp-server
+```
+
+### 3. Current Version*
+```
+1.0.1
+```
+
+### 4. Short Description* (200 characters max)
+```
+AI phone assistant for Claude. Schedule restaurant reservations, book medical appointments, and make general inquiries without picking up the phone.
+```
+
+### 5. Long Description*
+```
+The KallyAI MCP Server enables Claude AI to make phone calls through an AI assistant. Users can ask Claude to schedule restaurant reservations, book medical appointments, make general business inquiries, and handle other phone-based tasks without picking up the phone.
+
+Key Features:
+- Restaurant Reservations: Book tables with specific date, time, and party size
+- Medical Appointments: Schedule appointments at clinics with flexible time preferences
+- Hotel Bookings: Reserve hotel rooms and amenities
+- General Inquiries: Ask businesses questions about products, services, and availability
+- Call History & Transcripts: Track past calls and access full conversation transcripts
+- Usage Tracking: Monitor minutes used and quota remaining
+
+Supported Regions: United States, Canada, United Kingdom, Spain, Most EU countries
+
+Languages: English (en), Spanish (es)
+
+Authentication: Users authenticate once at https://kallyai.com/app via Google/Apple Sign-In. Tokens stored locally in ~/.kallyai_token.json with automatic refresh.
+```
+
+---
+
+### 6. Author Name*
+```
+Sergei Telitsyn
+```
+
+### 7. Author Email*
+```
+ceo@kallyintelligence.com
+```
+
+### 8. Author Website
+```
+https://github.com/Kally-Intelligence-Inc
+```
+
+---
+
+### 9. GitHub Repository URL*
+```
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
+```
+
+### 10. Homepage URL
+```
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#readme
+```
+
+### 11. Documentation URL*
+```
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/USAGE.md
+```
+
+### 12. Support / Issues URL*
+```
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
+```
+
+---
+
+### 13. Privacy Policy URL* (REQUIRED - TWO LOCATIONS)
+
+**Location 1 - README.md**: ✅ Added
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#privacy-policy
+
+**Location 2 - manifest.json**: ✅ Added
+```json
+"privacy_policies": [
+  "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/PRIVACY.md",
+  "https://kallyai.com/privacy"
+]
+```
+
+**Copy-Paste for Form:**
+```
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/PRIVACY.md
+
+Additional: https://kallyai.com/privacy (KallyAI service privacy policy)
+```
+
+---
+
+### 14. License*
+```
+MIT
+```
+
+---
+
+### 15. Tool Declarations (6 tools - All have safety annotations ✅)
+
+```
+1. kallyai_create_call
+   - Description: Make an AI phone call to accomplish tasks like restaurant reservations, medical appointments, hotel bookings, or general inquiries
+   - Safety: readOnlyHint=false, destructiveHint=false, idempotentHint=false, openWorldHint=true
+
+2. kallyai_list_calls
+   - Description: List call history with pagination to see previous phone calls and their status
+   - Safety: readOnlyHint=true, destructiveHint=false, idempotentHint=true, openWorldHint=true
+
+3. kallyai_get_call
+   - Description: Get detailed information about a specific call including results and next steps
+   - Safety: readOnlyHint=true, destructiveHint=false, idempotentHint=true, openWorldHint=true
+
+4. kallyai_get_transcript
+   - Description: Retrieve the full conversation transcript from a completed call
+   - Safety: readOnlyHint=true, destructiveHint=false, idempotentHint=true, openWorldHint=true
+
+5. kallyai_get_subscription
+   - Description: Check subscription status, plan details, and billing information
+   - Safety: readOnlyHint=true, destructiveHint=false, idempotentHint=true, openWorldHint=true
+
+6. kallyai_get_statistics
+   - Description: Get usage statistics including minutes used, calls made, and remaining quota
+   - Safety: readOnlyHint=true, destructiveHint=false, idempotentHint=true, openWorldHint=true
+```
+
+---
+
+### 16. Three Working Examples* (REQUIRED - Minimum 3)
+
+#### Example 1: Restaurant Reservation
+
+**User Prompt:**
+```
+"Call Bella Italia at +1-415-555-1234 and make a reservation for 4 people tomorrow at 7pm. My name is John Smith."
+```
+
+**Expected Tool Behavior:**
+- Tool: `kallyai_create_call`
+- The AI assistant calls the restaurant
+- Speaks with staff to request reservation
+- Confirms table for 4 people at 7:00 PM
+- Provides confirmation and next steps
+
+**Expected Output:**
+```
+Call Completed - Status: success
+
+Summary: Successfully reserved a table for 4 people at 7:00 PM on January 26, 2026.
+
+Next Steps: Arrive 10 minutes early. Ask for the Smith reservation.
+
+Duration: 2m 15s
+```
+
+---
+
+#### Example 2: Medical Appointment
+
+**User Prompt:**
+```
+"Schedule a dental checkup at Downtown Dental (415-555-9876). I prefer morning appointments before 11am."
+```
+
+**Expected Tool Behavior:**
+- Tool: `kallyai_create_call`
+- AI calls the dental office
+- Requests appointment for checkup
+- Specifies morning time preference
+- Finds available slot and books it
+
+**Expected Output:**
+```
+Call Completed - Status: success
+
+Summary: Appointment scheduled for January 28, 2026 at 10:30 AM.
+
+Next Steps: Arrive 15 minutes early to fill out paperwork. Bring insurance card.
+```
+
+---
+
+#### Example 3: Product Inquiry
+
+**User Prompt:**
+```
+"Call the Apple Store at +1-415-555-2000 and ask if they have iPhone 15 Pro in stock and what colors are available."
+```
+
+**Expected Tool Behavior:**
+- Tool: `kallyai_create_call`
+- AI calls the Apple Store
+- Inquires about iPhone 15 Pro availability
+- Asks for color options
+- Gathers pricing information
+
+**Expected Output:**
+```
+Call Completed - Status: success
+
+Summary: iPhone 15 Pro is in stock. Available colors: Natural Titanium, Blue Titanium, White Titanium, Black Titanium. Price: $999 for 128GB.
+
+Next Steps: Visit store or order online. Stock available for immediate pickup.
+```
+
+---
+
+### 17. Testing Credentials* (if authentication required)
+
+**Authentication Required:** YES
+
+**Test Account:** Available upon request
+
+**How to Request:**
+- Email: engineering@kallyai.com
+- Subject: "MCP Desktop Extension Review - Test Account Request"
+
+**Test Account Includes:**
+- Pre-loaded quota for making test calls
+- Sample call history with completed calls
+- Active subscription (all features enabled)
+- Access to all 6 tools
+- English and Spanish language support
+
+**Alternative Testing:**
+Users can create their own account at:
+https://kallyai.com/app (Google/Apple Sign-In)
+
+---
+
+### 18. Compatibility*
+
+**Platforms Supported:**
+- ✅ macOS (darwin)
+- ✅ Windows (win32)
+- ✅ Linux
+
+**Runtime Requirements:**
+- Node.js >= 18
+
+**Tested On:**
+- macOS: ✅ Verified (January 25, 2026)
+- Windows: ✅ Compatible (Node.js bundled in Claude Desktop)
+- Linux: ✅ Compatible (Node.js bundled in Claude Desktop)
+
+---
+
+### 19. Package Information*
+
+**Package File:** kallyai-mcp-server-1.0.1.mcpb
+
+**Package Size:** 4.1 MB
+
+**Unpacked Size:** 12.2 MB
+
+**Total Files:** 2,563
+
+**Manifest Version:** 0.3
+
+**Entry Point:** dist/index.js (Node.js)
+
+**Dependencies Included:** ✅ Yes (all node_modules bundled)
+
+---
+
+### 20. Pre-Submission Testing Checklist
+
+**Development Testing:**
+- ✅ All 6 tools tested and functional
+- ✅ Real phone call completed successfully (January 25, 2026)
+- ✅ Call ID: def4ce1e-801f-464a-819a-73bb4a725caf
+- ✅ TypeScript compilation: 0 errors
+- ✅ npm build successful
+
+**Clean Environment Testing:**
+- ✅ Package created with production dependencies only
+- ✅ mcpb pack validation passed
+- ✅ No development tools required at runtime
+- ✅ Manifest schema validation passed
+
+**Cross-Platform Testing:**
+- ✅ Variable substitution used (${__dirname})
+- ✅ No hardcoded paths
+- ✅ Node.js portable configuration
+- ✅ Compatible with Node >= 18
+
+**Claude Desktop Testing:**
+- ✅ Can be installed via npx (stdio mode)
+- ✅ manifest.json includes mcp_config
+- ✅ Ready for one-click installation from directory
+
+---
+
+### 21. Security & Safety*
+
+**Security Audit:** EXCELLENT Rating
+https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/SECURITY-AUDIT.md
+
+**Security Features:**
+- Zero npm vulnerabilities (152 packages)
+- CORS protection (HTTP mode)
+- Rate limiting (100 req/15min per IP)
+- Helmet security headers (CSP, HSTS)
+- Token file permission enforcement (0o600)
+- JSON schema validation
+- OWASP Top 10 compliant
+
+**Safety Annotations:** ✅ All 6 tools annotated
+
+**Data Privacy:**
+- No data collection by MCP server
+- Pass-through service only
+- Tokens stored locally only
+- Open source (MIT) for transparency
+
+---
+
+### 22. Additional Information
+
+**Production Status:**
+- ✅ General Availability (GA)
+- ✅ Published to npm (v1.0.1)
+- ✅ Real-world tested
+- ✅ Zero known issues
+
+**Keywords:**
+phone, calls, ai-assistant, reservations, appointments, scheduling, voice, automation, restaurant, medical, hotel
+
+**Support Channels:**
+- GitHub Issues (< 24 hour response for critical)
+- Email: support@kallyai.com
+- Documentation: Complete (README, USAGE, IMPLEMENTATION, SECURITY-AUDIT)
+
+**Changelog:**
+- v1.0.1: Security hardening (CORS, rate limiting, helmet, token validation)
+- v1.0.0: Initial release (6 tools, OAuth2 auth, real-world tested)
+
+---
+
+## Submission Checklist ✅
+
+- [x] Extension name and ID provided
+- [x] Privacy policy in README.md
+- [x] Privacy policy in manifest.json privacy_policies array
+- [x] Minimum 3 working examples with realistic prompts
+- [x] All tools have safety annotations
+- [x] manifest.json v0.3 with mcp_config
+- [x] Package created and validated (mcpb pack)
+- [x] Compatible with macOS, Windows, Linux
+- [x] Node.js >= 18 specified
+- [x] Test account available on request
+- [x] Documentation complete
+- [x] Security audit complete
+- [x] Production tested
+
+---
+
+## Ready to Submit! 🚀
+
+All requirements met. The KallyAI MCP Server is ready for Local MCP Server Directory submission.
+
+**Next Step:** Fill out the form at https://forms.gle/tyiAZvch1kDADKoP9 using the responses above.
+
+**Package Location:** /Users/sergei/PycharmProjects/KallyAI/kallyai-mcp-server/kallyai-mcp-server-1.0.1.mcpb
+
+**Upload Package:** When form requests the .mcpb file, upload kallyai-mcp-server-1.0.1.mcpb (4.1 MB)
