@@ -46,7 +46,7 @@ All communication with the KallyAI API uses:
 When you use this connector, your data is sent to the KallyAI API:
 - **Service**: KallyAI Phone Assistant API
 - **URL**: https://api.kallyai.com
-- **Privacy Policy**: https://kallyai.com/privacy
+- **Privacy Policy**: https://kallyai.com/privacy-policy
 - **Purpose**: To execute AI phone calls on your behalf
 
 The KallyAI API may collect:
@@ -55,7 +55,7 @@ The KallyAI API may collect:
 - Usage statistics
 - Subscription information
 
-Please review the [KallyAI Privacy Policy](https://kallyai.com/privacy) for details.
+Please review the [KallyAI Privacy Policy](https://kallyai.com/privacy-policy) for details.
 
 ## Local Storage
 
@@ -92,11 +92,17 @@ For privacy-related questions about:
 - **KallyAI Service**: Contact support@kallyintelligence.com
 - **Data Requests**: privacy@kallyintelligence.com
 
-## Open Source
+## Prohibited Activities
 
-This MCP server is open source (MIT License). You can review the complete source code to verify our privacy claims:
-- GitHub: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
-- License: MIT
+You shall NOT:
+
+1. **Reverse Engineer**: Attempt to reverse engineer, decompile, disassemble, or derive source code, algorithms, or data structures from the KallyAI API
+2. **Security Testing**: Conduct penetration testing, vulnerability scanning, or any security research on the KallyAI API or MCP Server without prior written consent
+3. **Circumvent Controls**: Attempt to bypass, disable, or circumvent any security features, authentication mechanisms, or rate limits
+4. **Unauthorized Access**: Access or attempt to access any systems, data, or accounts without authorization
+5. **API Abuse**: Use automated tools to scrape, harvest, or extract data beyond normal usage patterns
+
+Violations may result in immediate termination of access and legal action.
 
 ## Compliance
 
@@ -105,13 +111,9 @@ We respect user privacy and comply with:
 - California Consumer Privacy Act (CCPA)
 - Other applicable data protection laws
 
-## Transparency
-
-As an open-source project, all code is publicly auditable. We encourage security researchers to review our implementation and report any concerns.
-
 ---
 
 **Note**: This privacy policy applies only to the KallyAI MCP Server connector. For information about how Claude AI or the KallyAI service handles your data, please refer to their respective privacy policies:
 
 - [Anthropic (Claude) Privacy Policy](https://www.anthropic.com/privacy)
-- [KallyAI Privacy Policy](https://kallyai.com/privacy)
+- [KallyAI Privacy Policy](https://kallyai.com/privacy-policy)
