@@ -184,6 +184,49 @@ See the [API Reference](https://api.kallyai.com/docs) for complete documentation
 - English (`en`)
 - Spanish (`es`)
 
+## Privacy Policy
+
+**Full Privacy Policy**: [PRIVACY.md](PRIVACY.md)
+
+### Data Collection & Usage
+
+The KallyAI MCP Server **does NOT collect or store any user data**. It operates as a pass-through service:
+
+- **Authentication**: OAuth2 tokens stored locally in `~/.kallyai_token.json` (owner-only permissions)
+- **No Logging**: Conversation history and personal information are not logged
+- **No Analytics**: No telemetry or usage tracking
+- **Secure Transit**: All API requests use HTTPS/TLS encryption
+- **Third-Party Service**: Requests are forwarded to KallyAI API (https://api.kallyai.com) - see [KallyAI Privacy Policy](https://kallyai.com/privacy)
+
+### What Data is Transmitted
+
+When you use this MCP server, the following data is sent to the KallyAI API:
+- Phone numbers you request to call
+- Task descriptions for the AI assistant
+- Call settings (language, timezone, etc.)
+- Your OAuth2 authentication token
+
+### Data Retention
+
+- **Local tokens**: Stored until manually deleted (`rm ~/.kallyai_token.json`)
+- **Call data**: Retained by KallyAI according to their privacy policy
+- **MCP server**: Does not retain any data between sessions
+
+### User Rights
+
+You have the right to:
+- Access your data via KallyAI API tools
+- Delete your authentication tokens locally
+- Revoke API access through the KallyAI dashboard
+- Export your call history
+
+### Contact
+
+Privacy questions:
+- **This MCP Server**: support@kallyai.com
+- **KallyAI Service**: privacy@kallyai.com
+- **GitHub Issues**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
+
 ## License
 
 MIT
@@ -194,3 +237,4 @@ For issues and questions:
 - API Documentation: https://api.kallyai.com/docs
 - Website: https://kallyai.com
 - Support: support@kallyai.com
+- GitHub Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
