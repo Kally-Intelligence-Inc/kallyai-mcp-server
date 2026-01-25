@@ -249,7 +249,7 @@ The KallyAI MCP Server **does NOT collect or store any user data**. It operates 
 - **No Logging**: Conversation history and personal information are not logged
 - **No Analytics**: No telemetry or usage tracking
 - **Secure Transit**: All API requests use HTTPS/TLS encryption
-- **Third-Party Service**: Requests are forwarded to KallyAI API (https://api.kallyai.com) - see [KallyAI Privacy Policy](https://kallyai.com/privacy)
+- **Third-Party Service**: Requests are forwarded to KallyAI API (https://api.kallyai.com) - see [KallyAI Privacy Policy](https://kallyai.com/privacy-policy)
 
 ### What Data is Transmitted
 
