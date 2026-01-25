@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kallyai": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/kallyai-mcp-server/dist/index.js"
+      ]
+    }
+  }
+}
