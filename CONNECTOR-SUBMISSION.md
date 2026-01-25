@@ -5,7 +5,7 @@
 ## Server Information
 
 - **Name**: KallyAI MCP Server
-- **Version**: 1.0.0
+- **Version**: 1.0.1
 - **Type**: Remote MCP Server (Streamable HTTP + stdio)
 - **Status**: Production Ready (GA)
 - **License**: MIT
