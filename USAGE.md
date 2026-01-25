@@ -42,14 +42,16 @@ TRANSPORT=http PORT=3000 node dist/index.js
 
 ### 3. Authentication
 
-All API calls require an OAuth2 access token. Users can obtain tokens through:
+All API calls require an OAuth2 access token.
 
-**Option 1: Interactive Web Sign-in**
-1. Visit https://kallyai.com/app
-2. Sign in with Google or Apple
-3. Access token will be available in the app
+**Interactive Setup (Recommended)**
 
-**Option 2: OAuth2 Authorization Code Flow**
+Run the setup wizard to authenticate:
+```bash
+npx kallyai-mcp-server --setup
+```
+
+**OAuth2 Authorization Code Flow**
 
 For integrations (e.g., GPT Actions):
 
@@ -57,9 +59,9 @@ For integrations (e.g., GPT Actions):
 ```
 https://api.kallyai.com/v1/auth/authorize?
   response_type=code&
-  client_id=YOUR_CLIENT_ID&
-  redirect_uri=YOUR_REDIRECT_URI&
-  scope=calls.read%20calls.write
+  client_id=CLIENT_ID&
+  redirect_uri=REDIRECT_URI&
+  scope=calls:read%20calls:write
 ```
 
 2. **Token Exchange**:
@@ -67,10 +69,10 @@ https://api.kallyai.com/v1/auth/authorize?
 curl -X POST https://api.kallyai.com/v1/auth/gpt/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=authorization_code" \
-  -d "client_id=YOUR_CLIENT_ID" \
-  -d "client_secret=YOUR_CLIENT_SECRET" \
+  -d "client_id=CLIENT_ID" \
+  -d "client_secret=CLIENT_SECRET" \
   -d "code=AUTH_CODE" \
-  -d "redirect_uri=YOUR_REDIRECT_URI"
+  -d "redirect_uri=REDIRECT_URI"
 ```
 
 3. **Refresh Token**:
@@ -78,8 +80,8 @@ curl -X POST https://api.kallyai.com/v1/auth/gpt/token \
 curl -X POST https://api.kallyai.com/v1/auth/gpt/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=refresh_token" \
-  -d "client_id=YOUR_CLIENT_ID" \
-  -d "client_secret=YOUR_CLIENT_SECRET" \
+  -d "client_id=CLIENT_ID" \
+  -d "client_secret=CLIENT_SECRET" \
   -d "refresh_token=REFRESH_TOKEN"
 ```
 
