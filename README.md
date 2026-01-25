@@ -76,6 +76,15 @@ The authentication token is stored in `~/.kallyai_token.json` and used automatic
 Environment variables:
 - `TRANSPORT`: Set to `http` for HTTP server, default is `stdio`
 - `PORT`: HTTP server port (default: 3000)
+- `ALLOWED_ORIGINS`: Comma-separated list of allowed CORS origins for HTTP mode (default: `https://claude.ai,https://www.anthropic.com`)
+
+### Security Features (HTTP Mode)
+
+When running in HTTP mode, the server includes:
+- **CORS Protection**: Restricts cross-origin requests to allowed domains
+- **Rate Limiting**: 100 requests per 15 minutes per IP address
+- **Security Headers**: Helmet middleware with CSP and HSTS
+- **Request Size Limits**: 100kb maximum payload size
 
 ## Example Tool Calls
 

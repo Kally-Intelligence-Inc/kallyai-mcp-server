@@ -4,13 +4,23 @@
  * Same approach as kallyai-cli
  */
 
-import { readFile, writeFile } from "fs/promises";
+import { readFile, writeFile, stat } from "fs/promises";
 import { homedir } from "os";
 import { join } from "path";
 import axios from "axios";
+import { z } from "zod";
 import { API_BASE_URL } from "../constants.js";
 
 const TOKEN_FILE = join(homedir(), ".kallyai_token.json");
+
+// Mutex lock to prevent concurrent token refresh attempts
+let refreshPromise: Promise<TokenData> | null = null;
+
+const TokenDataSchema = z.object({
+  access_token: z.string().min(1),
+  refresh_token: z.string().min(1),
+  expires_at: z.number().int().positive(),
+});
 
 interface TokenData {
   access_token: string;
@@ -30,14 +40,24 @@ interface RefreshResponse {
 async function readTokenFile(): Promise<TokenData | null> {
   try {
     const content = await readFile(TOKEN_FILE, "utf-8");
+
+    // Verify file permissions for security
+    const stats = await stat(TOKEN_FILE);
+    const mode = stats.mode & parseInt('777', 8);
+    if (mode !== parseInt('600', 8)) {
+      throw new Error(
+        `Token file has insecure permissions (${mode.toString(8)}). ` +
+        `Please run: chmod 600 ${TOKEN_FILE}`
+      );
+    }
+
     const data = JSON.parse(content);
-    return {
-      access_token: data.access_token,
-      refresh_token: data.refresh_token,
-      expires_at: data.expires_at,
-    };
+
+    // Validate the token data structure
+    const validatedData = TokenDataSchema.parse(data);
+    return validatedData;
   } catch (error) {
-    // File doesn't exist or can't be read
+    // File doesn't exist, can't be read, or validation failed
     return null;
   }
 }
@@ -101,15 +121,24 @@ export async function getAccessToken(): Promise<string> {
   const isExpired = tokenData.expires_at - now < 60;
 
   if (isExpired) {
+    // Check if a refresh is already in progress
+    if (refreshPromise) {
+      const refreshedData = await refreshPromise;
+      return refreshedData.access_token;
+    }
+
     // Attempt to refresh the token
     try {
-      const refreshedData = await refreshToken(tokenData.refresh_token);
+      refreshPromise = refreshToken(tokenData.refresh_token);
+      const refreshedData = await refreshPromise;
       return refreshedData.access_token;
     } catch (error) {
       throw new Error(
         `Access token expired and refresh failed. Please authenticate again by running: kallyai login\n` +
         `Error: ${error instanceof Error ? error.message : String(error)}`
       );
+    } finally {
+      refreshPromise = null;
     }
   }
 

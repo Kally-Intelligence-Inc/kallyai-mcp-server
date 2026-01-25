@@ -10,6 +10,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import express from "express";
+import cors from "cors";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
 
 // Import schemas
 import {
@@ -359,7 +362,42 @@ async function runStdio() {
  */
 async function runHTTP() {
   const app = express();
+
+  // Configure helmet security headers
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'", "https://api.kallyai.com"],
+      },
+    },
+    hsts: {
+      maxAge: 31536000,
+      includeSubDomains: true,
+    },
+  }));
+
+  // Configure CORS
+  app.use(cors({
+    origin: process.env.ALLOWED_ORIGINS?.split(',') || ['https://claude.ai', 'https://www.anthropic.com'],
+    credentials: true,
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
+
   app.use(express.json());
+
+  // Configure rate limiter
+  const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: 'Too many requests, please try again later.',
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  });
+
+  // Apply rate limiter to /mcp endpoint
+  app.use('/mcp', limiter);
 
   app.post("/mcp", async (req, res) => {
     const transport = new StreamableHTTPServerTransport({
