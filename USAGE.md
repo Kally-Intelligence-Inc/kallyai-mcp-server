@@ -51,38 +51,29 @@ Run the setup wizard to authenticate:
 npx kallyai-mcp-server --setup
 ```
 
-**OAuth2 Authorization Code Flow**
+**CLI OAuth Flow (for MCP servers and AI agents)**
 
-For integrations (e.g., GPT Actions):
+The MCP server uses the CLI OAuth flow which returns tokens directly:
 
-1. **Authorization URL**:
+1. **Open auth page** (start a local HTTP server first):
 ```
-https://api.kallyai.com/v1/auth/authorize?
-  response_type=code&
-  client_id=CLIENT_ID&
-  redirect_uri=REDIRECT_URI&
-  scope=calls:read%20calls:write
+https://api.kallyai.com/v1/auth/cli?redirect_uri=http://localhost:8976/callback
 ```
 
-2. **Token Exchange**:
+2. **User authenticates** via Google/Apple sign-in
+
+3. **Tokens returned** in redirect:
+```
+http://localhost:8976/callback?access_token=TOKEN&refresh_token=REFRESH&expires_in=3600
+```
+
+**Security:** Only localhost/127.0.0.1 redirect URIs are allowed.
+
+**Token refresh:**
 ```bash
-curl -X POST https://api.kallyai.com/v1/auth/gpt/token \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=authorization_code" \
-  -d "client_id=CLIENT_ID" \
-  -d "client_secret=CLIENT_SECRET" \
-  -d "code=AUTH_CODE" \
-  -d "redirect_uri=REDIRECT_URI"
-```
-
-3. **Refresh Token**:
-```bash
-curl -X POST https://api.kallyai.com/v1/auth/gpt/token \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=refresh_token" \
-  -d "client_id=CLIENT_ID" \
-  -d "client_secret=CLIENT_SECRET" \
-  -d "refresh_token=REFRESH_TOKEN"
+curl -X POST https://api.kallyai.com/v1/auth/refresh \
+  -H "Content-Type: application/json" \
+  -d '{"refresh_token": "REFRESH_TOKEN"}'
 ```
 
 ## Available Tools
