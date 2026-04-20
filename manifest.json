@@ -7,7 +7,7 @@
   "long_description": "The KallyAI MCP Server enables Claude AI to make phone calls through an AI assistant. Users can ask Claude to schedule restaurant reservations, book medical appointments, make general business inquiries, and handle other phone-based tasks without picking up the phone.\n\n**Key Features:**\n- Restaurant Reservations: Book tables with specific date, time, and party size\n- Medical Appointments: Schedule appointments at clinics with flexible time preferences\n- Hotel Bookings: Reserve hotel rooms and amenities\n- General Inquiries: Ask businesses questions about products, services, and availability\n- Call History & Transcripts: Track past calls and access full conversation transcripts\n- Usage Tracking: Monitor minutes used and quota remaining\n\n**Supported Regions:** United States, Canada, United Kingdom, Spain, Most EU countries\n\n**Languages:** English (en), Spanish (es)",
   "author": {
     "name": "Kally Intelligence, Inc.",
-    "email": "support@kallyai.com",
+    "email": "support@kallyintelligence.com",
     "url": "https://github.com/Kally-Intelligence-Inc"
   },
   "server": {
