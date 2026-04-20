@@ -212,5 +212,5 @@ See [README.md](README.md) for full installation and usage instructions.
 
 Need help?
 - Email: support@kallyintelligence.com
-- Issues: https://github.com/sltelitsyn/kallyai-mcp-server/issues
-- Documentation: https://github.com/sltelitsyn/kallyai-mcp-server
+- Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
+- Documentation: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server

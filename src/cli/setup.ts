@@ -332,7 +332,7 @@ Run: npx kallyai-mcp-server --setup
   3. Start making AI phone calls!
 
 📖 For Claude Desktop configuration, see:
-   https://github.com/sltelitsyn/kallyai-mcp-server#installation
+   https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#installation
 
 Need help? Email us at support@kallyintelligence.com
 `);

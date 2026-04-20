@@ -88,7 +88,7 @@ We may update this privacy policy from time to time. The "Last Updated" date at 
 
 For privacy-related questions about:
 
-- **This MCP Server**: Create an issue at [GitHub Repository](https://github.com/sltelitsyn/kallyai-mcp-server)
+- **This MCP Server**: Create an issue at [GitHub Repository](https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server)
 - **KallyAI Service**: Contact support@kallyintelligence.com
 - **Data Requests**: privacy@kallyintelligence.com
 

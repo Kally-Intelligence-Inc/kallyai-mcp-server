@@ -462,11 +462,11 @@ AUTHENTICATION:
   https://kallyai.com/app → Settings → Developer → API Tokens
 
 DOCUMENTATION:
-  https://github.com/sltelitsyn/kallyai-mcp-server
+  https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server
 
 SUPPORT:
   Email: support@kallyintelligence.com
-  Issues: https://github.com/sltelitsyn/kallyai-mcp-server/issues
+  Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
 `);
     process.exit(0);
   }
