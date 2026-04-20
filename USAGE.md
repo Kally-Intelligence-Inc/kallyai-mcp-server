@@ -243,11 +243,11 @@ Machine-readable structured data with all fields.
 ```json
 {
   "error": "quota_exceeded",
-  "message": "You've used all your minutes. Upgrade at https://kallyai.com/pricing"
+  "message": "You've used all your minutes. Upgrade at https://kallyai.com/app?upgrade=true"
 }
 ```
 
-**Solution**: User needs to upgrade their plan at kallyai.com/pricing
+**Solution**: User needs to upgrade their plan at kallyai.com/app?upgrade=true
 
 ### Invalid Phone Number
 ```json
