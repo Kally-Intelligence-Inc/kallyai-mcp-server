@@ -66,7 +66,7 @@ export function handleApiError(error: unknown): string {
 
         switch (code) {
           case "quota_exceeded":
-            return `Error: Quota exceeded. ${message}. Please upgrade at https://kallyai.com/pricing`;
+            return `Error: Quota exceeded. ${message}. Please upgrade at https://kallyai.com/app?upgrade=true`;
           case "missing_phone_number":
             return `Error: ${message}. Please provide a valid phone number in E.164 format (+1234567890)`;
           case "emergency_number":
@@ -103,7 +103,7 @@ export function handleApiError(error: unknown): string {
         case 401:
           return "Error: Unauthorized. Please provide a valid access token";
         case 402:
-          return "Error: Payment required. You've exceeded your quota. Upgrade at https://kallyai.com/pricing";
+          return "Error: Payment required. You've exceeded your quota. Upgrade at https://kallyai.com/app?upgrade=true";
         case 403:
           return "Error: Forbidden. You don't have permission to perform this action";
         case 404:
