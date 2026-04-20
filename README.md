@@ -278,7 +278,7 @@ You have the right to:
 Privacy questions:
 - **This MCP Server**: support@kallyintelligence.com
 - **KallyAI Service**: privacy@kallyintelligence.com
-- **GitHub Issues**: https://github.com/sltelitsyn/kallyai-mcp-server/issues
+- **GitHub Issues**: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues
 
 ## License
 
@@ -290,4 +290,4 @@ For issues and questions:
 - API Documentation: https://api.kallyai.com/docs
 - Website: https://kallyai.com
 - Support: support@kallyintelligence.com
-- GitHub Issues: https://github.com/sltelitsyn/kallyai-mcp-server/issues
+- GitHub Issues: https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues

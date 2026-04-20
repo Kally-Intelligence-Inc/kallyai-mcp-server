@@ -8,7 +8,7 @@
   "author": {
     "name": "Sergei Telitsyn",
     "email": "sltelitsyn@gmail.com",
-    "url": "https://github.com/sltelitsyn"
+    "url": "https://github.com/Kally-Intelligence-Inc"
   },
   "server": {
     "type": "node",
@@ -23,11 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sltelitsyn/kallyai-mcp-server"
+    "url": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server"
   },
-  "homepage": "https://github.com/sltelitsyn/kallyai-mcp-server#readme",
-  "documentation": "https://github.com/sltelitsyn/kallyai-mcp-server/blob/main/USAGE.md",
-  "support": "https://github.com/sltelitsyn/kallyai-mcp-server/issues",
+  "homepage": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server#readme",
+  "documentation": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/USAGE.md",
+  "support": "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/issues",
   "keywords": [
     "phone",
     "calls",
@@ -43,7 +43,7 @@
   ],
   "license": "MIT",
   "privacy_policies": [
-    "https://github.com/sltelitsyn/kallyai-mcp-server/blob/main/PRIVACY.md",
+    "https://github.com/Kally-Intelligence-Inc/kallyai-mcp-server/blob/main/PRIVACY.md",
     "https://kallyai.com/privacy-policy"
   ],
   "tools": [
